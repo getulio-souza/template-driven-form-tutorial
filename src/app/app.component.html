@@ -33,17 +33,9 @@
     <div class="gender-box">
       <h3>Gender</h3>
       <div class="gender-option">
-        <div class="gender">
-          <input type="radio" id="check-male" name="gender" ngModel value="male" required  />
-          <label for="check-male">Male</label>
-        </div>
-        <div class="gender">
-          <input type="radio" id="check-female" name="gender" ngModel value="female" required />
-          <label for="check-female">Female</label>
-        </div>
-        <div class="gender">
-          <input type="radio" id="check-other" name="gender" ngModel value="other" required />
-          <label for="check-other">Prefer not to say</label>
+        <div class="gender" *ngFor="let genre of genders">
+          <input type="radio" [id]="genre.id" name="gender" ngModel [value]="genre.value" required  />
+          <label for="check-male">{{genre.display}}</label>
         </div>
       </div>
     </div>
@@ -85,8 +77,12 @@
       </div>
     </div>
 
+    <!-- [disabled]="!isFormValid()"  -->
+    <!-- [ngClass]="{'disable-btn': !isFormValid()}" -->
     <input
-    [ngClass]="{'disable-btn': !isFormValid()}"
-    [disabled]="!isFormValid()" type="submit" value="Submit" class="submit-btn" />
+    type="submit"
+    value="Submit"
+    class="submit-btn"
+    />
   </form>
 </section>

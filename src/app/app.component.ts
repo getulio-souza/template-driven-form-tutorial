@@ -13,6 +13,12 @@ export class AppComponent implements OnInit{
   title = 'template-driven-form';
   disabledBtn: boolean = false;
 
+  genders: any[] = [
+    {id: 'check-male', value: 'male', display: 'Male'},
+    {id: 'check-female', value: 'female', display: 'Female'},
+    {id: 'check-other', value: 'unknown', display: 'Other'},
+  ]
+
   @ViewChild('registrationForm') form!: NgForm
 
     ngOnInit(): void {
@@ -20,7 +26,7 @@ export class AppComponent implements OnInit{
     }
 
   onFormSubmitted(form: NgForm) {
-    console.log(this.form.valid)
+    console.log(this.form)
     // console.log(this.form.controls['firstName'].value);
     // console.log(this.form.controls['lastName'].value);
     this.disabledBtn = true;
